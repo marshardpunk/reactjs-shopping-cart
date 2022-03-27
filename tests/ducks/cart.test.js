@@ -1,4 +1,4 @@
-import {addToCart, removeFromCart, isInCart, getCurrency} from "../../src/ducks/cart.js";
+import {addToCart, removeFromCart, isInCart, getCurrency, getItems} from "../../src/ducks/cart.js";
 
 test("Agregar al carrito", ()=>{
     //Arrange
@@ -73,3 +73,4 @@ test("Obtener moneda", ()=>{
     //Assert
     expect(respuesta).toBe("EUR");
 });
+
