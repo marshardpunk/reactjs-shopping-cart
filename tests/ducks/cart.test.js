@@ -1,4 +1,4 @@
-import {addToCart, removeFromCart, isInCart, getCurrency, getItems} from "../../src/ducks/cart.js";
+import {addToCart, removeFromCart, isInCart, getCurrency, getItems, getTotal} from "../../src/ducks/cart.js";
 
 test("Agregar al carrito", ()=>{
     //Arrange
@@ -74,3 +74,68 @@ test("Obtener moneda", ()=>{
     expect(respuesta).toBe("EUR");
 });
 
+test("Obtener productos a partir de arreglo", ()=>{
+    //Arrange
+    const pos1=
+    {
+      id: 1,
+      name: 'Ohrensessel Josslyn',
+      price: 499.99,
+      currency: 'EUR',
+      image: 'images/01.jpg',
+    };
+    const pos2=
+    {
+        id: 2,
+        name: 'Sessel Sofie',
+        price: 249.99,
+        currency: 'EUR',
+        image: 'images/02.jpg',
+    };
+    const initialState = {
+        cart:{
+            items: [2], // array of product ids
+            currency: 'EUR'
+        },
+        products: [pos1, pos2]
+    };
+
+    //Act
+    const respuesta=getItems(initialState, null);
+
+    //Assert
+    expect(respuesta[0]).toBe(pos2);
+});
+
+test("Total del carrito", ()=>{
+    //Arrange
+    const pos1=
+    {
+      id: 1,
+      name: 'Ohrensessel Josslyn',
+      price: 499.99,
+      currency: 'EUR',
+      image: 'images/01.jpg',
+    };
+    const pos2=
+    {
+        id: 2,
+        name: 'Sessel Sofie',
+        price: 249.99,
+        currency: 'EUR',
+        image: 'images/02.jpg',
+    };
+    const initialState = {
+        cart:{
+            items: [1, 2], // array of product ids
+            currency: 'EUR'
+        },
+        products: [pos1, pos2]
+    };
+
+    //Act
+    const respuesta=getTotal(initialState, null);
+
+    //Assert
+    expect(respuesta).toBe(749.98);
+});

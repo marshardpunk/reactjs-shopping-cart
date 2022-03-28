@@ -1,9 +1,7 @@
-import { arrayOf } from "prop-types";
 import {getProduct, getProducts} from "../../src/ducks/products.js";
 
 test("Obtener un producto", ()=>{
     //Arrange
-    const data = require("../../src/data/products");
     const pos1=
         {
           id: 1,
