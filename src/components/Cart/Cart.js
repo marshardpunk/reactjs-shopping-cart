@@ -11,16 +11,16 @@ const Cart = ({ items, total, currency, removeFromCart }) => {
                 <div className="panel panel-default">
                     <div className="panel-body">
                         {items.length > 0 && (
-                            <div className="cart__body">
+                            <div className="cart__body" data-testid="miLista">
                                 {items.map(item => (
                                     <CartItem key={item.id} {...item} onClick={() => removeFromCart(item.id)} />
                                 ))}
                             </div>
                         )}
                         {items.length === 0 && (
-                            <div className="alert alert-info">Cart is empty</div>
+                            <div className="alert alert-info" data-testid="miValidacion">Cart is empty</div>
                         )}
-                        <div className="cart__total">Total: {total} {currency}</div>
+                        <div className="cart__total" data-testid="miTotal">Total: {total} {currency}</div>
                     </div>
                 </div>
             </div>
