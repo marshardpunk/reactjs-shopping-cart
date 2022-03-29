@@ -17,12 +17,12 @@ class Product extends Component {
 
         return (
             <div className="product thumbnail">
-                <img src={image} alt="product" />
+                <img src={image} alt="product" data-testid="miImagen" />
                 <div className="caption">
-                    <h3>{name}</h3>
-                    <div className="product__price">{price} {currency}</div>
+                    <h3 data-testid="miTitulo">{name}</h3>
+                    <div className="product__price" data-testid="miPrecioProducto">{price} {currency}</div>
                     <div className="product__button-wrap">
-                        <button
+                        <button data-testid="miAccion"
                             className={isInCart ? 'btn btn-danger' : 'btn btn-primary'}
                             onClick={this.handleClick}
                         >
