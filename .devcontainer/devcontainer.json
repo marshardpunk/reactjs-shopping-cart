@@ -1,4 +1,5 @@
+// APUNTA AL DOCKERFILE PARA EL ENTORNO DE DESARROLLO, NO CONFUNDIR CON EL DE ENTORNO DE PRODUCCIÓN
 {
     "name": "react-shopping-cart",
-    "dockerFile": "../Dockerfile"
+    "dockerFile": "Dockerfile"
 }
